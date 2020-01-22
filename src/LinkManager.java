@@ -19,8 +19,7 @@ public class LinkManager {
     
     public boolean initialize(String fileName){
         try {
-            BufferedReader inStream                       // Create and 
-                = new BufferedReader (new FileReader(fileName)); // Open the stream
+            BufferedReader inStream = new BufferedReader (new FileReader(fileName)); // Create and open the stream.
             String name = "";
             String title = "";
             int sal = 0;
@@ -61,39 +60,38 @@ public class LinkManager {
         }
     }
     
-    public boolean isEmpty()  
-    {
+    public boolean isEmpty()  {
         return head == null;
     }
     
     public void insert(LinkNode newNode) { 
-    if (isEmpty()) 
-        head = newNode;                   // Insert at head of list
-    else {
-        LinkNode current = head;   // Start traversal at head
-        while (current.getNext() != null) // While not at the last node
-        {
-            current = current.getNext();
-        }  //   go to the next node
-        current.setNext( newNode );     // Do the insertion
-    }      
-} // insert()
+        if (isEmpty()) 
+            head = newNode; // Insert at head of list
+        else {
+            LinkNode current = head;   // Start traversal at head
+            while (current.getNext() != null) // While not at the last node
+            {
+                current = current.getNext();
+            }  //   go to the next node
+            current.setNext( newNode ); // Do the insertion
+        }      
+    } // insert()
 
     public String print() { 
-    
-    if (isEmpty()) 
-        return "List is empty";
-    
-    String listContents = "";
-    LinkNode current = head;          // Start traversal at head
-    
-    while (current != null) {                     // While not at end of list
-        listContents = listContents + current.getInfo() + "\n"; //   append node's data to string
-        current = current.getNext();              //   go to the next node
-    }       
-    return listContents;
-    
-} // print()
+        if (isEmpty()) {
+            return "List is empty";
+        }
+        
+        String listContents = "";
+        LinkNode current = head;          // Start traversal at head
+
+        while (current != null) {                     // While not at end of list
+            listContents = listContents + current.getInfo() + "\n"; //   append node's data to string
+            current = current.getNext();              //   go to the next node
+        }       
+        return listContents;
+
+    } // print()
     
     public void sortByYears() {
         // Sorts the linked list according to years of employment (increasing order) and displays the information from the reordered list in the text area.
@@ -122,5 +120,36 @@ public class LinkManager {
             
             } // end else   
         }
+    }
+    // TODO: sortByName, sortByTitle, sortByTitleAndSalary.
+    public void sortByName() {
+        
+    }
+    
+    public void sortByTitle() {
+        
+    }
+    
+    public void sortByTitleAndSalary() {
+        
+    }
+    // TODO: addItem, removeItem.
+    
+    public void addItem(String nameInput, String titleInput, String salaryInput, String yearsInput) {  // When adding a node, you will need to ask the user to enter all required information for that node.
+        String name = nameInput;
+        String title = titleInput;
+        String sal = salaryInput;
+        String years = yearsInput;
+        
+        if (name != "" && title != "" && sal != "" && years != "") {
+            myApp.displayText(name + " " + title + " " + sal + " " + years);
+        }
+        else {
+            myApp.displayText("All fields must be filled out.");
+            System.out.print("All fields must be filled out.");
+        }
+    }   
+    public void removeItem() {
+        
     }
 }

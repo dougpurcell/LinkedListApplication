@@ -34,6 +34,12 @@ public class LinkedApplication extends javax.swing.JFrame {
         sortbByYearsButton = new javax.swing.JToggleButton();
         sortByName = new javax.swing.JToggleButton();
         sortByTitleAndSalary = new javax.swing.JToggleButton();
+        addItem = new javax.swing.JToggleButton();
+        removeItem = new javax.swing.JToggleButton();
+        nameInput = new javax.swing.JTextField();
+        titleInput = new javax.swing.JTextField();
+        salaryInput = new javax.swing.JTextField();
+        yearsInput = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +79,48 @@ public class LinkedApplication extends javax.swing.JFrame {
             }
         });
 
+        addItem.setText("Add");
+        addItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addItemActionPerformed(evt);
+            }
+        });
+
+        removeItem.setText("Remove");
+        removeItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeItemActionPerformed(evt);
+            }
+        });
+
+        nameInput.setText("Name");
+        nameInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameInputActionPerformed(evt);
+            }
+        });
+
+        titleInput.setText("Title");
+        titleInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                titleInputActionPerformed(evt);
+            }
+        });
+
+        salaryInput.setText("Salary");
+        salaryInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salaryInputActionPerformed(evt);
+            }
+        });
+
+        yearsInput.setText("Years Employed");
+        yearsInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearsInputActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,19 +133,34 @@ public class LinkedApplication extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(filenameField))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buildDisplayButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sortbByYearsButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sortByName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sortByTitleAndSalary)
-                        .addGap(0, 205, Short.MAX_VALUE)))
+                        .addGap(129, 129, 129)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(sortByTitleAndSalary)
+                            .addComponent(sortbByYearsButton))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buildDisplayButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(sortByName)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(addItem)
+                                .addGap(38, 38, 38)
+                                .addComponent(removeItem))
+                            .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(titleInput, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(salaryInput, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(yearsInput, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,11 +172,27 @@ public class LinkedApplication extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buildDisplayButton)
-                    .addComponent(sortbByYearsButton)
+                    .addComponent(sortbByYearsButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sortByName)
                     .addComponent(sortByTitleAndSalary))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(titleInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(salaryInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(yearsInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addItem)
+                            .addComponent(removeItem))
+                        .addGap(45, 45, 45)))
                 .addContainerGap())
         );
 
@@ -131,12 +210,40 @@ public class LinkedApplication extends javax.swing.JFrame {
     }//GEN-LAST:event_sortbByYearsButtonActionPerformed
 
     private void sortByNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortByNameActionPerformed
-        // TODO add your handling code here:
+        manager.sortByName();  // true = operation successful
+        display.setText(manager.print());
     }//GEN-LAST:event_sortByNameActionPerformed
 
     private void sortByTitleAndSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortByTitleAndSalaryActionPerformed
-        // TODO add your handling code here:
+        manager.sortByTitleAndSalary();  // true = operation successful
+        display.setText(manager.print());
     }//GEN-LAST:event_sortByTitleAndSalaryActionPerformed
+
+    private void addItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addItemActionPerformed
+        manager.addItem(nameInput.getText(), titleInput.getText(), salaryInput.getText(), yearsInput.getText());  // TODO: hmmm
+        display.setText(manager.print());
+    }//GEN-LAST:event_addItemActionPerformed
+
+    private void nameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameInputActionPerformed
+
+    }//GEN-LAST:event_nameInputActionPerformed
+
+    private void titleInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titleInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_titleInputActionPerformed
+
+    private void salaryInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_salaryInputActionPerformed
+
+    private void yearsInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearsInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yearsInputActionPerformed
+
+    private void removeItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeItemActionPerformed
+        manager.removeItem();  // true = operation successful
+        display.setText(manager.print());
+    }//GEN-LAST:event_removeItemActionPerformed
 
     public void displayText(String s)
     {
@@ -179,14 +286,20 @@ public class LinkedApplication extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton addItem;
     private javax.swing.JButton buildDisplayButton;
     private javax.swing.JTextArea display;
     private javax.swing.JLabel fileNameLabel;
     private javax.swing.JTextField filenameField;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTextField nameInput;
+    private javax.swing.JToggleButton removeItem;
+    private javax.swing.JTextField salaryInput;
     private javax.swing.JToggleButton sortByName;
     private javax.swing.JToggleButton sortByTitleAndSalary;
     private javax.swing.JToggleButton sortbByYearsButton;
+    private javax.swing.JTextField titleInput;
+    private javax.swing.JTextField yearsInput;
     // End of variables declaration//GEN-END:variables
 
 private LinkManager manager = new LinkManager(this);

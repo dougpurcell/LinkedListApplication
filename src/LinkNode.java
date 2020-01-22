@@ -2,16 +2,12 @@
  * LinkNode.java
  *
  */
-
-
 public class LinkNode {
-    
     private String empName;
     private String jobTitle;
     private int salary;
     private int yearsEmp;
     private LinkNode next;
-    
   
     public LinkNode(String name, String title, int sal, int years) { 
         empName = name;
@@ -37,12 +33,15 @@ public class LinkNode {
     public int getYears(){
         return yearsEmp;
     }
+    
     public int getSalary(){
         return salary;
     }
+    
     public String getTitle() {
         return jobTitle;
     }
+    
     public String getName() {
         return empName;
     }
