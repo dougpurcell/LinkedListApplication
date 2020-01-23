@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8121d47a-f44d-44bf-b4f6-158d90bbf43a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LinkedListApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/built-jar.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/LinkManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/LinkManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/LinkNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/LinkNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/LinkedApplication$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/LinkedApplication$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/LinkedApplication$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/LinkedApplication$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/LinkedApplication$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/LinkedApplication$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/LinkedApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/LinkedApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LinkedListApp/LinkManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LinkedListApp/LinkManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LinkedListApp/LinkNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LinkedListApp/LinkNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LinkedListApp/LinkedApplication$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LinkedListApp/LinkedApplication$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LinkedListApp/LinkedApplication$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LinkedListApp/LinkedApplication$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LinkedListApp/LinkedApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LinkedListApp/LinkedApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinkManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinkManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinkNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinkNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinkedApplication.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinkedApplication.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinkedApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinkedApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +57,9 @@
       <option name="presentableId" value="Default" />
       <updated>1579654227548</updated>
       <workItem from="1579654230506" duration="84000" />
+      <workItem from="1579654321220" duration="61000" />
+      <workItem from="1579654395895" duration="6000" />
+      <workItem from="1579809760773" duration="440000" />
     </task>
     <servers />
   </component>
@@ -108,9 +91,10 @@
       <screen x="0" y="23" width="1680" height="974" />
     </state>
     <state width="1358" height="249" key="GridCell.Tab.0.right/0.23.1680.974@0.23.1680.974" timestamp="1579654314619" />
-    <state x="517" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1579654231190">
-      <screen x="0" y="23" width="1680" height="974" />
+    <state x="517" y="359" key="com.intellij.ide.util.TipDialog" timestamp="1579809774312">
+      <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="517" y="342" key="com.intellij.ide.util.TipDialog/0.23.1680.974@0.23.1680.974" timestamp="1579654231190" />
+    <state x="517" y="359" key="com.intellij.ide.util.TipDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1579809774312" />
+    <state x="517" y="342" key="com.intellij.ide.util.TipDialog/0.23.1680.974@0.23.1680.974" timestamp="1579654397274" />
   </component>
 </project>

@@ -98,6 +98,8 @@ public class LinkManager {
         LinkNode sortedYearHead = null; // temp head to be used for sorting by year.
         LinkNode current = head; // point to current node (to be added)
         LinkNode temp; // will keep location of next node to be placed from the current list
+        LinkNode prevNode; // will be use in the new list ot keep track fo the node before next.
+        LinkNode nextNode; // will be use in the new list ot keep track fo the node after previous.
         
         while (current != null) { // visit each node in the original list
             if (sortedYearHead == null) { // if there are no nodes in new list
@@ -107,6 +109,7 @@ public class LinkManager {
                 current.setNext(null); // severs link to next item in list.
                 current = temp; // set current back to next node to be placed, and keep while loop active.
             } //end if
+            
             else if (current.getYears() < head.getYears()) { // place node at front
                 temp = current.getNext(); // set temp to next node
                 head = current; // place new node at head of list
@@ -114,10 +117,29 @@ public class LinkManager {
                 sortedYearHead = head; // reassign new sorted year head.
                 current = temp; // set current back to next node to be placed, and keep while loop active.
             } // end else if
+            
             else  { // node needs to be placed at the middle or end of the list.
-            
-                // TODO: start here on Thursday.
-            
+                temp = current.getNext(); // Keep the rest of the list.
+                prevNode = sortedYearHead; // set pre to head of the list.
+                nextNode = sortedYearHead.getNext(); // set next to node after head.
+                
+                while ((nextNode != null) && (current.getYears() > nextNode.getYears())) {
+                    prevNode = nextNode;
+                    nextNode = nextNode.getNext();
+                }
+                
+                if (nextNode == null ) {
+                    prevNode.setNext(current);
+                    current.setNext(null);
+                    current = temp;
+                    
+                }
+                else { // add to middle. Place current between prevnode and nextnode
+                    current.setNext(nextNode);
+                    prevNode.setNext(current);
+                    current = temp;
+                    
+                }
             } // end else   
         }
     }
