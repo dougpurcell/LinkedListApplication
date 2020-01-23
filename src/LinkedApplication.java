@@ -220,7 +220,7 @@ public class LinkedApplication extends javax.swing.JFrame {
     }//GEN-LAST:event_sortByTitleAndSalaryActionPerformed
 
     private void addItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addItemActionPerformed
-        manager.addItem(nameInput.getText(), titleInput.getText(), salaryInput.getText(), yearsInput.getText());  // TODO: hmmm
+        manager.addItem(nameInput.getText(), titleInput.getText(), salaryInput.getText(), yearsInput.getText());
         display.setText(manager.print());
     }//GEN-LAST:event_addItemActionPerformed
 
@@ -241,7 +241,7 @@ public class LinkedApplication extends javax.swing.JFrame {
     }//GEN-LAST:event_yearsInputActionPerformed
 
     private void removeItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeItemActionPerformed
-        manager.removeItem();  // true = operation successful
+        manager.removeItem(nameInput.getText(), titleInput.getText(), salaryInput.getText(), yearsInput.getText());
         display.setText(manager.print());
     }//GEN-LAST:event_removeItemActionPerformed
 

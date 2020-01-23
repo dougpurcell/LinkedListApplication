@@ -138,18 +138,58 @@ public class LinkManager {
                     current.setNext(nextNode);
                     prevNode.setNext(current);
                     current = temp;
-                    
                 }
             } // end else   
         }
     }
     // TODO: sortByName, sortByTitle, sortByTitleAndSalary.
-    public void sortByName() {
+    public void sortByName() { // Sorts the linked list alphabetical by name.
+        LinkNode sortedNameHead = null; // temp head to be used for sorting by year.
+        LinkNode current = head; // point to current node (to be added)
+        LinkNode temp; // will keep location of next node to be placed from the current list
+        LinkNode prevNode; // will be use in the new list ot keep track fo the node before next.
+        LinkNode nextNode; // will be use in the new list ot keep track fo the node after previous.
         
-    }
-    
-    public void sortByTitle() {
-        
+        while (current != null) { // visit each node in the original list
+            if (sortedNameHead == null) { // if there are no nodes in new list
+                sortedNameHead = current; // set location to new node.
+                head = current; //assign head of list to current node.
+                temp = current.getNext(); // remember first node in the rest of the OG list.
+                current.setNext(null); // severs link to next item in list.
+                current = temp; // set current back to next node to be placed, and keep while loop active.
+            } //end if
+            
+            else if (current.getName().compareTo(head.getName()) < 0) { // place node at front
+                temp = current.getNext(); // set temp to next node
+                head = current; // place new node at head of list
+                head.setNext(sortedNameHead);
+                sortedNameHead = head; // reassign new sorted year head.
+                current = temp; // set current back to next node to be placed, and keep while loop active.
+            } // end else if
+            
+            else  { // node needs to be placed at the middle or end of the list.
+                temp = current.getNext(); // Keep the rest of the list.
+                prevNode = sortedNameHead; // set pre to head of the list.
+                nextNode = sortedNameHead.getNext(); // set next to node after head.
+                
+                while ((nextNode != null) && (current.getName().compareTo(nextNode.getName()) > 0 )) {
+                    prevNode = nextNode;
+                    nextNode = nextNode.getNext();
+                }
+                
+                if (nextNode == null ) {
+                    prevNode.setNext(current);
+                    current.setNext(null);
+                    current = temp;
+                    
+                }
+                else { // add to middle. Place current between prevnode and nextnode
+                    current.setNext(nextNode);
+                    prevNode.setNext(current);
+                    current = temp;
+                }
+            } // end else   
+        }
     }
     
     public void sortByTitleAndSalary() {
@@ -158,20 +198,41 @@ public class LinkManager {
     // TODO: addItem, removeItem.
     
     public void addItem(String nameInput, String titleInput, String salaryInput, String yearsInput) {  // When adding a node, you will need to ask the user to enter all required information for that node.
-        String name = nameInput;
-        String title = titleInput;
-        String sal = salaryInput;
-        String years = yearsInput;
-        
-        if (name != "" && title != "" && sal != "" && years != "") {
-            myApp.displayText(name + " " + title + " " + sal + " " + years);
+        try {
+            String name = nameInput;
+            String title = titleInput;
+            int sal = Integer.parseInt(salaryInput);
+            int years = Integer.parseInt(yearsInput);
+           
+            LinkNode addNode = new LinkNode(name, title, sal, years); 
+            insert (addNode);
         }
-        else {
-            myApp.displayText("All fields must be filled out.");
-            System.out.print("All fields must be filled out.");
+        catch (NumberFormatException e) {
+            myApp.displayText("Invalid Data for Add");
         }
     }   
-    public void removeItem() {
+    public void removeItem(String nameInput, String titleInput, String salaryInput, String yearsInput) {
+        String name = nameInput;
+        String title = titleInput;
+        int sal = Integer.parseInt(salaryInput);
+        int years = Integer.parseInt(yearsInput);
+        
+        LinkNode removeNode = new LinkNode(name, title, sal, years);
+        
+        LinkNode current = head; // point to current node (to be added)
+        LinkNode temp; // will keep location of next node to be placed from the current list
+        LinkNode prevNode; // will be use in the new list ot keep track fo the node before next.
+        LinkNode nextNode; // will be use in the new list ot keep track fo the node after previous.
+        
+        if( (removeNode.getName().compareTo(current.getName()) == 0) &&
+            (removeNode.getTitle().compareTo(current.getTitle()) == 0) &&
+            (removeNode.getSalary() == current.getSalary()) &&
+            (removeNode.getYears() == current.getYears())
+            ){
+            head = head.getNext();   
+        }
+        
+        // TODO: finish this.
         
     }
 }
