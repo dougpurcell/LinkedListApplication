@@ -6,6 +6,7 @@
 import java.lang.*;
 import java.util.*;
 import java.io.*;
+import javax.swing.JOptionPane;
 
 public class LinkManager { 
     
@@ -193,9 +194,8 @@ public class LinkManager {
     }
     
     public void sortByTitleAndSalary() {
-        
+        //TODO: 
     }
-    // TODO: addItem, removeItem.
     
     public void addItem(String nameInput, String titleInput, String salaryInput, String yearsInput) {  // When adding a node, you will need to ask the user to enter all required information for that node.
         try {
@@ -220,19 +220,40 @@ public class LinkManager {
         LinkNode removeNode = new LinkNode(name, title, sal, years);
         
         LinkNode current = head; // point to current node (to be added)
-        LinkNode temp; // will keep location of next node to be placed from the current list
-        LinkNode prevNode; // will be use in the new list ot keep track fo the node before next.
-        LinkNode nextNode; // will be use in the new list ot keep track fo the node after previous.
-        
-        if( (removeNode.getName().compareTo(current.getName()) == 0) &&
-            (removeNode.getTitle().compareTo(current.getTitle()) == 0) &&
-            (removeNode.getSalary() == current.getSalary()) &&
-            (removeNode.getYears() == current.getYears())
-            ){
-            head = head.getNext();   
-        }
-        
-        // TODO: finish this.
-        
+        LinkNode prevNode = current; // will be use in the new list ot keep track fo the node before next.
+        LinkNode nextNode = current.getNext(); // will be use in the new list ot keep track fo the node after previous.
+            
+            if( (removeNode.getName().compareTo(current.getName()) == 0) &&
+                (removeNode.getTitle().compareTo(current.getTitle()) == 0) &&
+                (removeNode.getSalary() == current.getSalary()) &&
+                (removeNode.getYears() == current.getYears())
+                ){
+                head = head.getNext();   
+            }
+            
+            else {
+                prevNode = head; // set pre to head of the list.
+                nextNode = head.getNext(); // set next to node after head.
+                
+                while ((nextNode.getNext() != null) && !((removeNode.getName().compareTo(nextNode.getName()) == 0) &&
+                (removeNode.getTitle().compareTo(nextNode.getTitle()) == 0) &&
+                (removeNode.getSalary() == nextNode.getSalary()) &&
+                (removeNode.getYears() == nextNode.getYears()))  ){
+                    prevNode = nextNode;
+                    nextNode = nextNode.getNext();
+                }
+                
+                if ((removeNode.getName().compareTo(nextNode.getName()) == 0) &&
+                (removeNode.getTitle().compareTo(nextNode.getTitle()) == 0) &&
+                (removeNode.getSalary() == nextNode.getSalary()) &&
+                (removeNode.getYears() == nextNode.getYears()))
+                {
+                    prevNode.setNext(nextNode.getNext());
+                    
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "NOT FOUND - Information did not match", "NOT FOUND", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } // end else   
+        }  
     }
-}
