@@ -143,7 +143,7 @@ public class LinkManager {
             } // end else   
         }
     }
-    // TODO: sortByName, sortByTitle, sortByTitleAndSalary.
+    
     public void sortByName() { // Sorts the linked list alphabetical by name.
         LinkNode sortedNameHead = null; // temp head to be used for sorting by year.
         LinkNode current = head; // point to current node (to be added)
@@ -191,11 +191,64 @@ public class LinkManager {
                 }
             } // end else   
         }
-    }
+    } // 
     
     public void sortByTitleAndSalary() {
-        //TODO: 
-    }
+        
+        LinkNode sortedByTitleAndSalary = null; // temp head to be used for sorting by title and salary.
+        LinkNode current = head; // point to current node (to be added)
+        LinkNode temp; // will keep location of next node to be placed from the current list
+        LinkNode prevNode; // will be use in the new list ot keep track fo the node before next.
+        LinkNode nextNode; // will be use in the new list ot keep track fo the node after previous.
+        
+        while (current != null) { // visit each node in the original list
+            
+            if (sortedByTitleAndSalary == null) { // if there are no nodes in new list
+                sortedByTitleAndSalary = current; // set location to new node.
+                head = current; //assign head of list to current node.
+                temp = current.getNext(); // remember first node in the rest of the OG list.
+                current.setNext(null); // severs link to next item in list.
+                current = temp; // set current back to next node to be placed, and keep while loop active.
+            } //end if
+            
+            else if ( 
+                (current.getTitle().compareTo(head.getTitle()) < 0) || 
+                ((current.getTitle().equals(head.getTitle()) && (current.getSalary() > head.getSalary())))
+                    ){  // place node at front
+                temp = current.getNext(); // set temp to next node
+                head = current; // place new node at head of list
+                head.setNext(sortedByTitleAndSalary);
+                sortedByTitleAndSalary = head; // reassign new sorted year head.
+                current = temp; // set current back to next node to be placed, and keep while loop active.
+            } // end else if
+            
+            else  { // node needs to be placed at the middle or end of the list.
+                temp = current.getNext(); // Keep the rest of the list.
+                prevNode = sortedByTitleAndSalary; // set pre to head of the list.
+                nextNode = sortedByTitleAndSalary.getNext(); // set next to node after head.
+                
+                while ((nextNode != null) && 
+                    (current.getTitle().compareTo(nextNode.getTitle()) >= 0) &&
+                (!(current.getTitle().equals(nextNode.getTitle())) || (current.getSalary() < nextNode.getSalary()))
+                        ) {
+                    prevNode = nextNode;
+                    nextNode = nextNode.getNext();
+                }
+                
+                if (nextNode == null ) {
+                    prevNode.setNext(current);
+                    current.setNext(null);
+                    current = temp;
+                    
+                }
+                else { // add to middle. Place current between prevnode and nextnode
+                    prevNode.setNext(current);
+                    current.setNext(nextNode);
+                    current = temp;
+                }
+            } // end else 
+        } // end while
+    } // end method
     
     public void addItem(String nameInput, String titleInput, String salaryInput, String yearsInput) {  // When adding a node, you will need to ask the user to enter all required information for that node.
         try {
@@ -208,7 +261,7 @@ public class LinkManager {
             insert (addNode);
         }
         catch (NumberFormatException e) {
-            myApp.displayText("Invalid Data for Add");
+                JOptionPane.showMessageDialog(null, "NOT FOUND - Information did not match", "NOT FOUND", JOptionPane.INFORMATION_MESSAGE);
         }
     }   
     public void removeItem(String nameInput, String titleInput, String salaryInput, String yearsInput) {
